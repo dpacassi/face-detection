@@ -8,8 +8,8 @@ If you want to run the face detection code yourself, read the relevant `README.m
 below the `/src/solutions` folder.
 
 To add meta information to the images and generate a CSV export, following two helper classes have been written:
-- [src/solutions/FaceDetectionClient.php](FaceDetectionClient)
-- [src/solutions/FaceDetectionImage.php](FaceDetectionImage)
+- [FaceDetectionClient](src/FaceDetectionClient.php)
+- [FaceDetectionImage](src/FaceDetectionImage.php)
 
 ## Where's what?
 - Dataset with images to be processed: `/dataset`
