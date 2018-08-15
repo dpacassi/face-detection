@@ -2,6 +2,15 @@
 This repository holds the implementation of the face detection solutions listed in
 my [blog post](https://www.liip.ch/en/blog/face-detection-an-overview-and-comparison-of-different-solutions-part1).
 
+## How does this work?
+All face detection integrations implemented are stored in the `/src/solutions` folder.
+If you want to run the face detection code yourself, read the relevant `README.md` file located
+below the `/src/solutions` folder.
+
+To add meta information to the images and generate a CSV export, following two helper classes have been written:
+- [src/solutions/FaceDetectionClient.php](FaceDetectionClient)
+- [src/solutions/FaceDetectionImage.php](FaceDetectionImage)
+
 ## Where's what?
 - Dataset with images to be processed: `/dataset`
 - Information about how many faces to expect per image in the dataset (to calculate the success rate): `/dataset/face_counts.ini`
