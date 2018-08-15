@@ -1,0 +1,10 @@
+{
+    "name": "dpacassi/face-detection",
+    "description": "Face detection with IBM Watson Visual Recognition",
+    "require": {
+        "vlucas/phpdotenv": " ^2.5"
+    },
+    "autoload": {
+        "files": ["load.environment.php"]
+    }
+}

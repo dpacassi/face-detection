@@ -1,0 +1,5 @@
+# Ignore Composer's vendor folder.
+vendor
+
+# Ignore files which contain sensitive information.
+.env

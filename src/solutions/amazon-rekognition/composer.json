@@ -1,0 +1,11 @@
+{
+    "name": "dpacassi/face-detection",
+    "description": "Face detection with Amazon Rekognition",
+    "require": {
+        "aws/aws-sdk-php": "^3.64",
+        "vlucas/phpdotenv": "^2.5"
+    },
+    "autoload": {
+        "files": ["load.environment.php"]
+    }
+}

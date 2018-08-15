@@ -1,0 +1,11 @@
+{
+    "name": "dpacassi/face-detection",
+    "description": "Face detection with the Google Cloud Vision API",
+    "require": {
+        "google/cloud-vision": "^0.15.1",
+        "vlucas/phpdotenv": " ^2.5"
+    },
+    "autoload": {
+        "files": ["load.environment.php"]
+    }
+}
