@@ -320,7 +320,7 @@ class FaceDetectionImage {
    * the image's metadata.
    */
   public function save() {
-    // Save the image without metadata first.
+    // First, save the image with bounding boxes only.
     switch ($this->mimeType) {
       case 'image/jpeg':
         imagejpeg($this->canvas, $this->outputDir . $this->rawDir . $this->getFilename());
