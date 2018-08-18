@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../FaceDetectionImage.php';
 require_once __DIR__ . '/OpenCV.php';
 
 // Init our FaceDetectionClient class.
-$app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'OpenCV', [255, 255, 255]);
+$app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'OpenCV', [1, 255, 1]);
 
 // Initialize the Amazon Rekognition client.
 $client = new OpenCV();

@@ -38,6 +38,13 @@ class FaceDetectionClient {
   protected $datasetDir;
 
   /**
+   * Defines the directory name where to save images with bounding boxes only.
+   *
+   * @var string
+   */
+  protected $rawDir;
+
+  /**
    * Our image dataset represented as an array of \FaceDetectionImage objects.
    *
    * @var \FaceDetection\FaceDetectionImage[]
@@ -70,19 +77,23 @@ class FaceDetectionClient {
    *   and bounding boxes to use.
    * @param string $datasetDir
    *   The full path to the image dataset to be processed.
+   * @param string $rawDir
+   *   The directory name where to save images with bounding boxes only.
    */
-  public function __construct($outputDir, $vendorName=NULL, $textColor=[255, 0, 0], $datasetDir=__DIR__ . '/../dataset/') {
+  public function __construct($outputDir, $vendorName=NULL, $textColor=[255, 0, 0], $datasetDir=__DIR__ . '/../dataset/', $rawDir='raw/') {
     $this->outputDir = __DIR__ . '/../dataset-output/' . $outputDir . '/';
     $this->vendorName = empty($vendorName) ? dirname($outputDir) : $vendorName;
     $this->textColor = $textColor;
     $this->datasetDir = $datasetDir;
+    $this->rawDir = $rawDir;
 
     $this->images = [];
     $this->startTime = 0;
     $this->expectedFaceCounts = [];
 
-    // Ensure the output directory exists.
+    // Ensure the output directories exists.
     $this->createDirectory($this->outputDir);
+    $this->createDirectory($this->outputDir . $this->rawDir);
 
     // Parse face counts file.
     $this->parseFaceCounts();
@@ -241,7 +252,7 @@ class FaceDetectionClient {
       $filename = basename($fullFilePath);
 
       try {
-        $this->images[] = new FaceDetectionImage($fullFilePath, $this->outputDir, $this->vendorName, $this->textColor, $this->getFaceCountForFilename($filename));
+        $this->images[] = new FaceDetectionImage($fullFilePath, $this->outputDir, $this->rawDir, $this->vendorName, $this->textColor, $this->getFaceCountForFilename($filename));
       } catch (\Exception $e) {
         print $e->getMessage();
       }

@@ -39,6 +39,13 @@ class FaceDetectionImage {
   protected $outputDir;
 
   /**
+   * Defines the directory name where to save images with bounding boxes only.
+   *
+   * @var string
+   */
+  protected $rawDir;
+
+  /**
    * The vendor name to use on the printed image metadata.
    *
    * @var string
@@ -102,6 +109,8 @@ class FaceDetectionImage {
    *   The image filename including the full path.
    * @param $outputDir
    *   The full path to where processed images will be saved.
+   * @param string $rawDir
+   *   The directory name where to save images with bounding boxes only.
    * @param $vendorName
    *   The vendor name to use on the printed image metadata.
    * @param $textColor
@@ -113,7 +122,7 @@ class FaceDetectionImage {
    * @throws \Exception
    *   If the image mime type is not supported.
    */
-  public function __construct($image, $outputDir, $vendorName, $textColor, $expectedFaceCount=NULL) {
+  public function __construct($image, $outputDir, $rawDir, $vendorName, $textColor, $expectedFaceCount=NULL) {
     $this->mimeType = image_type_to_mime_type(exif_imagetype($image));
 
     switch ($this->mimeType) {
@@ -133,6 +142,7 @@ class FaceDetectionImage {
 
     $this->image = $image;
     $this->outputDir = $outputDir;
+    $this->rawDir = $rawDir;
     $this->vendorName = $vendorName;
     $this->textColor = is_array($textColor) ? imagecolorallocate($this->canvas , $textColor[0], $textColor[1], $textColor[2]) : $textColor;
     $this->expectedFaceCount = $expectedFaceCount;
@@ -310,6 +320,17 @@ class FaceDetectionImage {
    * the image's metadata.
    */
   public function save() {
+    // Save the image without metadata first.
+    switch ($this->mimeType) {
+      case 'image/jpeg':
+        imagejpeg($this->canvas, $this->outputDir . $this->rawDir . $this->getFilename());
+        break;
+
+      case 'image/png':
+        imagepng($this->canvas, $this->outputDir . $this->rawDir . $this->getFilename());
+        break;
+    }
+
     // Add image information to canvas.
     $boundingBox = imagettfbbox(16, 0, $this->getPath() . '/../fonts/OpenSans-Regular.ttf', 'Processing time (ms): ' . $this->getProcessingTime());
 
