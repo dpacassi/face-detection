@@ -21,7 +21,7 @@ To add meta information to the images and generate a CSV export, following two h
 
 ## Installation
 As stated above, the code for each face detection solution can be found in the `/src/solutions` folder.
-If you want to run the code locally, please read the correspondingly `README.md` file located in the
+If you want to run the code locally, please read the corresponding `README.md` file located in the
 `/src/solutions` sub folders.
 - [Amazon Rekognition](src/solutions/amazon-rekognition)
 - [Google Cloud Vision API](src/solutions/google-cloud-vision-api)
