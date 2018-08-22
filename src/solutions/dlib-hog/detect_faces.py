@@ -11,11 +11,10 @@ file_name = sys.argv[1]
 # Create a Histogram of Oriented (HOG) & linear classifier based face detector using the dlib class.
 face_detector = dlib.get_frontal_face_detector()
 
-# Load the image into an array.
+# Load the image.
 image = io.imread(file_name)
 
 # Run the HOG face detector on the image data.
-# The result will be the bounding boxes of the faces in our image.
 detected_faces = face_detector(image, 1)
 
 # Loop through each detected face.
