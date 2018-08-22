@@ -1,6 +1,7 @@
 import json
 import sys
 import cv2
+import os
 from skimage import io
 
 faces_result = []
@@ -30,3 +31,5 @@ for (x, y, w, h) in detected_faces:
   })
 
 print(json.dumps(faces_result))
+
+sys.exit(0);

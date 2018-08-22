@@ -22,6 +22,9 @@ class FaceDetectionShell {
   public function detectFaces(FaceDetectionImage $image) {
     $result = shell_exec($this->shellCommand . ' ' . $image->getImage());
 
+    // Remove unwanted log messages from the shell output.
+    $result = trim(str_replace('[ INFO:0] Initialize OpenCL runtime...', '', $result));
+
     return json_decode($result, TRUE);
   }
 }
