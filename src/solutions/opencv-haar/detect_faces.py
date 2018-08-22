@@ -9,7 +9,7 @@ faces_result = []
 file_name = sys.argv[1]
 
 # Load the cascade classifier training file for haarcascade.
-haar_face_cascade = cv2.CascadeClassifier('data/haarcascade_frontalface_alt.xml')
+haar_face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml')
 
 # Load the image.
 image = io.imread(file_name)

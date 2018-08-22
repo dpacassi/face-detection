@@ -1,7 +1,15 @@
 import json
 import sys
 import cv2
+import os
 from skimage import io
+import logging
+import warnings
+
+# Suppress any output to stdout.
+devnull = open('/dev/null', 'w')
+default_stdout = os.dup(sys.stdout.fileno())
+os.dup2(devnull.fileno(), 1)
 
 faces_result = []
 
@@ -9,9 +17,8 @@ faces_result = []
 file_name = sys.argv[1]
 
 # Load the cascade classifier training file for haarcascade.
-haar_face_cascade = cv2.CascadeClassifier('data/haarcascade_frontalface_alt.xml')
+haar_face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml')
 
-# Load the image.
 image = io.imread(file_name)
 
 # Convert the image to grayscale mode as the OpenCV face detector expects images that way.
@@ -29,4 +36,10 @@ for (x, y, w, h) in detected_faces:
     "bottom": int(y + h)
   })
 
+# Reactivate output to stdout.
+os.dup2(default_stdout, 1)
+
 print(json.dumps(faces_result))
+
+# Suppress any output to stdout.
+os.dup2(devnull.fileno(), 1)
