@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../FaceDetectionImage.php';
 require_once __DIR__ . '/../../FaceDetectionShell.php';
 
 // Init our FaceDetectionClient class.
-$app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'Dlib - HOG', [255, 213, 70]);
+$app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'OpenCV - Haar', [255, 213, 70]);
 
 // Initialize the Amazon Rekognition client.
 $client = new FaceDetection\FaceDetectionShell('python detect_faces.py');
@@ -37,8 +37,6 @@ foreach ($images as &$image) {
 
   // Save our image.
   $image->save();
-
-  exit;
 }
 
 // Add analytical data to our CSV file.
