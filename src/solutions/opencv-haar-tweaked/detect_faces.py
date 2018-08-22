@@ -21,8 +21,7 @@ def main():
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Run the face detector on the image data.
-    #detected_faces = haar_face_cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=10, minSize=(25, 25));
-    detected_faces = haar_face_cascade.detectMultiScale(image);
+    detected_faces = haar_face_cascade.detectMultiScale(image, scaleFactor=1.05, minNeighbors=12);
 
     # Loop through each detected face.
     for (x, y, w, h) in detected_faces:
