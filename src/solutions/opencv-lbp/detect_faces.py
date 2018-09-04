@@ -12,7 +12,7 @@ def main():
     file_name = sys.argv[1]
 
     # Load the cascade classifier training file for haarcascade.
-    haar_face_cascade = cv2.CascadeClassifier(cv2.data.lbpcascades + 'lbpcascade_frontalface_improved.xml')
+    haar_face_cascade = cv2.CascadeClassifier('data/lbpcascade_frontalface_improved.xml')
 
     # Load the image.
     image = io.imread(file_name)
