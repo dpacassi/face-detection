@@ -12,7 +12,7 @@ def main(minmum_confidence):
     # Load the image, resize to 300x300 pixels and normalize it.
     image = cv2.imread(file_name)
     (h, w) = image.shape[:2]
-    blob = cv2.dnn.blobFromImage(cv2.resize(image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
+    blob = cv2.dnn.blobFromImage(image)
 
     # Load our serialized model file.
     net = cv2.dnn.readNetFromCaffe('data/deploy.prototxt.txt', 'data/res10_300x300_ssd_iter_140000.caffemodel')
@@ -39,4 +39,4 @@ def main(minmum_confidence):
 
 
 if __name__=="__main__":
-    main(0.5)
+    main(0.9)
