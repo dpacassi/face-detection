@@ -3,27 +3,33 @@ import sys
 import dlib
 from skimage import io
 
-faces_result = []
 
-# Take the image file name from the command line.
-file_name = sys.argv[1]
+def main():
+    faces_result = []
 
-# Create a Histogram of Oriented (HOG) & linear classifier based face detector using the dlib class.
-face_detector = dlib.get_frontal_face_detector()
+    # Take the image file name from the command line.
+    file_name = sys.argv[1]
 
-# Load the image.
-image = io.imread(file_name)
+    # Create a Histogram of Oriented (HOG) & linear classifier based face detector using the dlib class.
+    face_detector = dlib.get_frontal_face_detector()
 
-# Run the HOG face detector on the image data.
-detected_faces = face_detector(image, 1)
+    # Load the image.
+    image = io.imread(file_name)
 
-# Loop through each detected face.
-for i, face_rect in enumerate(detected_faces):
-  faces_result.append({
-    "left": face_rect.left(),
-    "top": face_rect.top(),
-    "right": face_rect.right(),
-    "bottom": face_rect.bottom()
-  })
+    # Run the HOG face detector on the image data.
+    detected_faces = face_detector(image, 1)
 
-print(json.dumps(faces_result))
+    # Loop through each detected face.
+    for i, face_rect in enumerate(detected_faces):
+        faces_result.append({
+            "left": face_rect.left(),
+            "top": face_rect.top(),
+            "right": face_rect.right(),
+            "bottom": face_rect.bottom()
+        })
+
+    print(json.dumps(faces_result))
+
+
+if __name__=="__main__":
+    main()

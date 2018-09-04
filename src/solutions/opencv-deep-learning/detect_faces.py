@@ -3,6 +3,7 @@ import sys
 import cv2
 import numpy as np
 
+
 def main(minmum_confidence):
     faces_result = []
 
