@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../FaceDetectionShell.php';
 $app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'OpenCV - Haar (tweaked)', [255, 213, 70]);
 
 // Initialize the Amazon Rekognition client.
-$client = new FaceDetection\FaceDetectionShell('python detect_faces.py');
+$client = new FaceDetection\FaceDetectionShell('python3 detect_faces.py');
 
 // Load our dataset.
 $images = $app->loadImages();
