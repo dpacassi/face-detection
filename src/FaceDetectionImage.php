@@ -331,15 +331,18 @@ class FaceDetectionImage {
         break;
     }
 
-    // Add image information to canvas.
-    $boundingBox = imagettfbbox(16, 0, $this->getPath() . '/../fonts/OpenSans-Regular.ttf', 'Processing time (ms): ' . $this->getProcessingTime());
+    // Calculate the bounding boxes of the processing time and vendor name.
+    // We need to know the maximum width of either one to paint our black rectangle correctly.
+    $boundingBox1 = imagettfbbox(24, 0, $this->getPath() . '/../fonts/OpenSans-SemiBold.ttf', $this->vendorName);
+    $boundingBox2 = imagettfbbox(16, 0, $this->getPath() . '/../fonts/OpenSans-Regular.ttf', 'Processing time: ' . $this->getProcessingTime() . ' ms');
+    $max_width = max($boundingBox1[2], $boundingBox2[2]);
 
     // Only append a % if we have a real value.
     $successRate = $this->getSuccessRate();
     $successRate = $successRate === '-' ? $successRate : $successRate . ' %';
 
     // Draw the rectangle and add the image metadata information.
-    imagefilledrectangle($this->canvas, 40, 15, 40 + $boundingBox[2] + 20, 185 + $boundingBox[3] + 5, $this->black);
+    imagefilledrectangle($this->canvas, 40, 15, 40 + $max_width + 20, 185 + $boundingBox2[3] + 5, $this->black);
     imagettftext($this->canvas, 24, 0, 50, 50, $this->textColor, $this->getPath() . '/../fonts/OpenSans-SemiBold.ttf', $this->vendorName);
     imagettftext($this->canvas, 16, 0, 50, 85, $this->textColor, $this->getPath() . '/../fonts/OpenSans-Regular.ttf', 'Image: ' . $this->getFilename());
     imagettftext($this->canvas, 16, 0, 50, 110, $this->textColor, $this->getPath() . '/../fonts/OpenSans-Regular.ttf', 'Success rate: ' . $successRate);
