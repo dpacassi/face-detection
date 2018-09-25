@@ -3,3 +3,7 @@ vendor
 
 # Ignore files which contain sensitive information.
 .env
+
+# Ignore our dataset output folder.
+/dataset-output
+
