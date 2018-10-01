@@ -9,9 +9,13 @@ All face detection implementations are stored in the `/src/solutions` folder.
 If you want to run the face detection code yourself, read the relevant `README.md` file located
 in each solution implementation's folder.
 
-To add meta information to the images and generate a CSV export, following two helper classes have been written:
+### Custom classes
+To add meta information to the images and generate a CSV export, following two classes have been written:
 - [FaceDetectionClient](src/FaceDetectionClient.php)
 - [FaceDetectionImage](src/FaceDetectionImage.php)
+
+In order to execute shell commands to find faces, following class has been written:
+- [FaceDetectionShell](src/FaceDetectionShell.php)
 
 ## Where's what?
 - Dataset with images to be processed: `/dataset`
@@ -19,7 +23,7 @@ To add meta information to the images and generate a CSV export, following two h
 - Processed datasets with metadata on the images: `/dataset-output`
 - CSV file with analytical data: `/dataset-output/results.csv`
 - Implementation of each solution: `/src/solutions/<solution>`
-- Custom helper classes: `/src/solutions`
+- Custom classes: `/src/solutions`
 
 **Important:** The `dataset-solutions` folder has been added to `.gitignore` in order not to blow up the Git repository size.  
 In case you're interested to see the processed images used in my blog posts, you can download the complete set
