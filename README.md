@@ -1,11 +1,13 @@
 # Face detection - An overview and comparison of different solutions
 This repository holds the implementation of the face detection solutions listed in
-my [blog post](https://www.liip.ch/en/blog/face-detection-an-overview-and-comparison-of-different-solutions-part1).
+my blog posts.
+- [Part 1: SaaS vendors](https://www.liip.ch/en/blog/face-detection-an-overview-and-comparison-of-different-solutions-part1)
+- Part 2: Open source options
 
 ## How does this work?
-All face detection integrations implemented are stored in the `/src/solutions` folder.
+All face detection implementations are stored in the `/src/solutions` folder.
 If you want to run the face detection code yourself, read the relevant `README.md` file located
-below the `/src/solutions` folder.
+in each solution implementation's folder.
 
 To add meta information to the images and generate a CSV export, following two helper classes have been written:
 - [FaceDetectionClient](src/FaceDetectionClient.php)
@@ -19,22 +21,33 @@ To add meta information to the images and generate a CSV export, following two h
 - Implementation of each solution: `/src/solutions/<solution>`
 - Custom helper classes: `/src/solutions`
 
+**Important:** The `dataset-solutions` folder has been added to `.gitignore` in order not to blow up the Git repository size.  
+In case you're interested to see the processed images used in my blog posts, you can download the complete set
+from our [file server](https://file.ac/ULMGq4AH8jg/).
+
 ## Installation
 As stated above, the code for each face detection solution can be found in the `/src/solutions` folder.
 If you want to run the code locally, please read the corresponding `README.md` file located in the
 `/src/solutions` sub folders.
+
+### SaaS vendors
 - [Amazon Rekognition](src/solutions/amazon-rekognition)
 - [Google Cloud Vision API](src/solutions/google-cloud-vision-api)
 - [IBM Watson Visual Recognition](src/solutions/ibm-watson-visual-recognition)
 - [Microsoft Face API](src/solutions/microsoft-azure-face-api)
 
-## CSV Export
-Each client run checks if a [results.csv](dataset-output/results.csv) file exists.
-If so, it will attach it's data to this CSV file. If not, it will create the file with the corresponding headers.
+### Open source options
+- [Ageitgey - Face Recognition](src/solutions/ageitgey-face_recognition)
+- [Dlib - CNN](src/solutions/dlib-cnn)
+- [Dlib - HOG](src/solutions/dlib-hog)
+- [OpenCV - Deep learning](src/solutions/opencv-deep-learning)
+- [OpenCV - Haar](src/solutions/opencv-haar)
+- [OpenCV - Haar (tweaked)](src/solutions/opencv-haar-tweaked)
+- [OpenCV - LBP](src/solutions/opencv-lbp)
 
-**Important:** If you wish to analyze your own image data set, first prepare the image dataset and remove
-the `/dataset-output/results.csv` file. Then you can run the face detection client for each vendor and you should end up
-with an up-to-date `/dataset-output/results.csv` file.
+## CSV Export
+Each solution run checks if a [results.csv](dataset-output/results.csv) file exists.
+If so, it will attach it's data to this CSV file. If not, it will create the file with the corresponding headers.
 
 ## Dataset
 The face detection solutions will try to find faces in all images in the `/dataset` directory.  
