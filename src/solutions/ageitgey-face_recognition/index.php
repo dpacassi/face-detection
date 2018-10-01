@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../FaceDetectionShell.php';
 // Init our FaceDetectionClient class.
 $app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'Ageitgey - Face Recognition', [255, 255, 0]);
 
-// Initialize the Amazon Rekognition client.
+// Initialize our client.
 $client = new FaceDetection\FaceDetectionShell('face_detection');
 
 // Load our dataset.

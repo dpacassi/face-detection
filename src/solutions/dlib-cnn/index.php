@@ -12,8 +12,10 @@ require_once __DIR__ . '/../../FaceDetectionShell.php';
 // Init our FaceDetectionClient class.
 $app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'Dlib - CNN', [0, 255, 0]);
 
-// Initialize the Amazon Rekognition client.
-$client = new FaceDetection\FaceDetectionShell('python3 detect_faces.py');
+// Initialize our client.
+$cli = getenv('PYTHON_CLI');
+$cli = $cli !== FALSE ? $cli : 'python';
+$client = new FaceDetection\FaceDetectionShell($cli . ' detect_faces.py');
 
 // Load our dataset.
 $images = $app->loadImages();
