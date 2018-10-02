@@ -7,7 +7,7 @@ Detect faces using [Dlib's pre-trained deep learning model](http://dlib.net/pyth
 - Python
 
 ## Installation
-[Compile](http://dlib.net/compile.html) the Dlib library in your environment.  
+Compile the [Dlib library](http://dlib.net/compile.htm) in your environment.  
 Since we use a Python script to detect faces, you will also need
 to compile the [Dlib Python API](https://github.com/davisking/dlib#compiling-dlib-python-api).
 
