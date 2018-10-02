@@ -16,7 +16,7 @@ def main(minmum_confidence):
     blob = cv2.dnn.blobFromImage(image)
 
     # Load our serialized model file.
-    net = cv2.dnn.readNetFromCaffe('data/deploy.prototxt.txt', 'data/res10_300x300_ssd_iter_140000.caffemodel')
+    net = cv2.dnn.readNetFromCaffe('data/deploy.prototxt', 'data/res10_300x300_ssd_iter_140000.caffemodel')
 
     # Run the face detector on the image data.
     net.setInput(blob)

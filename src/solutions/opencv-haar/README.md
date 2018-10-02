@@ -1,9 +1,10 @@
-# OpenCV - Deep learning
-Detect faces using [OpenCV's deep neural network module](https://github.com/opencv/opencv/wiki/Deep-Learning-in-OpenCV).  
+# OpenCV - Haar
+Detect faces using a [OpenCV' haar cascade classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml).  
 
 ## Requirements
-- OpenCV 3.3+
+- OpenCV
 - Python
+- [scikit-image](https://scikit-image.org/)
 
 ## Installation
 There are lots of different ways on how to install OpenCV and it's Python module.  
@@ -11,12 +12,10 @@ The easiest way would be to install it through the **unofficial** [Python packag
 You can also compile OpenCV on your machine yourself, there are many tutorials covering this topic already.
 For OSX you can e.g. try out [this tutorial](https://www.learnopencv.com/install-opencv3-on-macos/).
 
-### OpenCV Deep Neural Network
-In addition to OpenCV, you'll also need a network model. While you're able to train your own,
-you can also use pre-trained models.  
-The pre-trained model in this repository consists of following files:
-- [deploy.prototxt](https://github.com/opencv/opencv/blob/master/samples/dnn/face_detector/deploy.prototxt) - The `.prototxt` file with text description of the network architecture
-- [res10_300x300_ssd_iter_140000.caffemodel](https://github.com/opencv/opencv_3rdparty/tree/dnn_samples_face_detector_20170830) - The pre-trained face detector DNN model 
+### Cascade classifier
+We use OpenCV's [CascadeClassifier](https://docs.opencv.org/3.4.3/d1/de5/classcv_1_1CascadeClassifier.html) class to load a
+[stump-based 20x20 gentle adaboost frontal face detector classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml).
+Having said that, a big thank you to **Rainer Lienhart** who created and published this file.
 
 ## Running the face detection
 Simply run `php index.php`, your images with face detection will be saved in `/dataset-output/opencv-deep-learning`.
