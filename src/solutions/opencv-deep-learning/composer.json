@@ -1,0 +1,10 @@
+{
+    "name": "dpacassi/face-detection",
+    "description": "Face detection using OpenCV's deep neural network module",
+    "require": {
+        "vlucas/phpdotenv": " ^2.5"
+    },
+    "autoload": {
+        "files": ["load.environment.php"]
+    }
+}

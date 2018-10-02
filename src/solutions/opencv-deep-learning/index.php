@@ -1,8 +1,13 @@
 <?php
 /**
  * @file
- * Use dlib's get_frontal_face_detector() to detect faces in our dataset.
+ * Use OpenCV's deep neural network module to detect faces in our dataset.
  */
+
+// Include our Composer packages.
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+  require __DIR__ . '/vendor/autoload.php';
+}
 
 // Include custom classes.
 require_once __DIR__ . '/../../FaceDetectionClient.php';
@@ -12,8 +17,10 @@ require_once __DIR__ . '/../../FaceDetectionShell.php';
 // Init our FaceDetectionClient class.
 $app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'OpenCV - Deep learning', [255, 0, 0]);
 
-// Initialize the Amazon Rekognition client.
-$client = new FaceDetection\FaceDetectionShell('python3 detect_faces.py');
+// Initialize our client.
+$cli = getenv('PYTHON_CLI');
+$cli = $cli !== FALSE ? $cli : 'python';
+$client = new FaceDetection\FaceDetectionShell($cli . ' detect_faces.py');
 
 // Load our dataset.
 $images = $app->loadImages();
