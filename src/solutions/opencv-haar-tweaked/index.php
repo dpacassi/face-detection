@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../FaceDetectionImage.php';
 require_once __DIR__ . '/../../FaceDetectionShell.php';
 
 // Init our FaceDetectionClient class.
-$app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'OpenCV - Haar', [255, 0, 0]);
+$app = new FaceDetection\FaceDetectionClient(basename(__DIR__), 'OpenCV - Haar (tweaked)', [255, 0, 0]);
 
 // Initialize our client.
 $cli = getenv('PYTHON_CLI');
