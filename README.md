@@ -7,7 +7,7 @@ my blog posts.
 ## How does this work?
 All face detection implementations are stored in the `/src/solutions` folder.
 If you want to run the face detection code yourself, read the relevant `README.md` file located
-in each solution implementation's folder.
+in each solution's folder.
 
 ### Custom classes
 To add meta information to the images and generate a CSV export, following two classes have been written:
@@ -59,7 +59,7 @@ You can extend the images or replace them with your own, as you wish.
 **Important:** Only JPG and PNG images are supported for now!
 
 All images currently stored in the `/dataset` directory were downloaded from [pexels.com](https://www.pexels.com/),
-many thanks to the contributors/photographers of the images and also to Pexels!
+many thanks to the contributors and photographers of the images and also to Pexels!
 
 ### Downloaded images
 - [9746](https://www.pexels.com/photo/selfie-family-generation-father-9746/)

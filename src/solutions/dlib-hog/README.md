@@ -1,4 +1,4 @@
-# Dlib - CNN
+# Dlib - HOG
 Detect faces using [Dlib's HOG face detection model](http://dlib.net/python/index.html#dlib.get_frontal_face_detector).  
 
 ## Requirements
@@ -7,7 +7,7 @@ Detect faces using [Dlib's HOG face detection model](http://dlib.net/python/inde
 - Python
 
 ## Installation
-Compile the [Dlib library](http://dlib.net/compile.htm) in your environment.  
+Compile the [Dlib library](http://dlib.net/compile.html) in your environment.  
 Since we use a Python script to detect faces, you will also need
 to compile the [Dlib Python API](https://github.com/davisking/dlib#compiling-dlib-python-api).
 
@@ -15,6 +15,6 @@ to compile the [Dlib Python API](https://github.com/davisking/dlib#compiling-dli
 Simply run `php index.php`, your images with face detection will be saved in `/dataset-output/dlib-cnn`.
 
 ### Note
-The PHP script uses the `python` command line program.  
+The PHP script uses by default the `python` command line program.  
 If you want to use another command line program (e.g. `python3`),
 simply run `composer install` and copy the `.env.example` file to `.env` and customize the command line program.

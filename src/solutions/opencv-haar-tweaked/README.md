@@ -1,5 +1,6 @@
-# OpenCV - Haar
-Detect faces using a [OpenCV' haar cascade classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml).  
+# OpenCV - Haar (tweaked)
+Detect faces using a [OpenCV' haar cascade classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml)
+and customizing a few default settings.  
 
 ## Requirements
 - OpenCV
@@ -18,9 +19,9 @@ We use OpenCV's [CascadeClassifier](https://docs.opencv.org/3.4.3/d1/de5/classcv
 Having said that, a big thank you to **Rainer Lienhart** who created and published this file.
 
 ## Running the face detection
-Simply run `php index.php`, your images with face detection will be saved in `/dataset-output/opencv-deep-learning`.
+Simply run `php index.php`, your images with face detection will be saved in `/dataset-output/opencv-haar-tweaked`.
 
 ### Note
-The PHP script uses the `python` command line program.  
+The PHP script uses by default the `python` command line program.  
 If you want to use another command line program (e.g. `python3`),
 simply run `composer install` and copy the `.env.example` file to `.env` and customize the command line program.
