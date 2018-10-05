@@ -1,5 +1,5 @@
-# OpenCV - Haar
-Detect faces using a [OpenCV's haar cascade classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml).  
+# OpenCV - LBP
+Detect faces using a [OpenCV lbp cascade classifier](https://github.com/opencv/opencv/blob/master/data/lbpcascades/lbpcascade_frontalface_improved.xml).  
 
 ## Requirements
 - OpenCV
@@ -14,11 +14,11 @@ For OSX you can e.g. try out [this tutorial](https://www.learnopencv.com/install
 
 ### Cascade classifier
 We use OpenCV's [CascadeClassifier](https://docs.opencv.org/3.4.3/d1/de5/classcv_1_1CascadeClassifier.html) class to load a
-[stump-based 20x20 gentle adaboost frontal face detector classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml).
-Having said that, a big thank you to **Rainer Lienhart** who created and published this file.
+[lbp frontal face detector classifier](https://github.com/opencv/opencv/blob/master/data/lbpcascades/lbpcascade_frontalface_improved.xml).
+Having said that, a big thank you to the authors Puttemans Steven, Can Ergun and Toon Goedeme.
 
 ## Running the face detection
-Simply run `php index.php`, your images with face detection will be saved in `/dataset-output/opencv-haar`.
+Simply run `php index.php`, your images with face detection will be saved in `/dataset-output/opencv-lbp`.
 
 ### Note
 The PHP script uses by default the `python` command line program.  
