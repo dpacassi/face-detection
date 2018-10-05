@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Use IBM Watson Visual Recognition to detect faces in our dataset.
+ * Use Microsoft Azure Face to detect faces in our dataset.
  */
 
 // Include our Composer packages.

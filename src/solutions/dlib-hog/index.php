@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Use dlib's get_frontal_face_detector() to detect faces in our dataset.
+ * Use Dlib's HOG face detection model to detect faces in our dataset.
  */
 
 // Include our Composer packages.

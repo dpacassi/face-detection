@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Use dlib's get_frontal_face_detector() to detect faces in our dataset.
+ * Use ageitgey's face recognition API to detect faces in our dataset.
  */
 
 // Include custom classes.
