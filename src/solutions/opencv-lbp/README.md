@@ -1,5 +1,5 @@
 # OpenCV - LBP
-Detect faces using a [OpenCV lbp cascade classifier](https://github.com/opencv/opencv/blob/master/data/lbpcascades/lbpcascade_frontalface_improved.xml).  
+Detect faces using an [OpenCV lbp cascade classifier](https://github.com/opencv/opencv/blob/master/data/lbpcascades/lbpcascade_frontalface_improved.xml).  
 
 ## Requirements
 - OpenCV

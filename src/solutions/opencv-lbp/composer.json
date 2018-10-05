@@ -1,6 +1,6 @@
 {
     "name": "dpacassi/face-detection",
-    "description": "Face detection using a OpenCV lbp cascade classifier",
+    "description": "Face detection using an OpenCV lbp cascade classifier.",
     "require": {
         "vlucas/phpdotenv": " ^2.5"
     },

@@ -1,6 +1,6 @@
 {
     "name": "dpacassi/face-detection",
-    "description": "Face detection using Dlib's pre-trained deep learning model",
+    "description": "Face detection using Dlib's pre-trained deep learning model.",
     "require": {
         "vlucas/phpdotenv": " ^2.5"
     },

@@ -1,6 +1,6 @@
 {
     "name": "dpacassi/face-detection",
-    "description": "Face detection using a OpenCV' haar cascade classifier",
+    "description": "Face detection using an OpenCV haar cascade classifier.",
     "require": {
         "vlucas/phpdotenv": " ^2.5"
     },

@@ -1,6 +1,6 @@
 {
     "name": "dpacassi/face-detection",
-    "description": "Face detection using Dlib's HOG face detection model",
+    "description": "Face detection using Dlib's HOG face detection model.",
     "require": {
         "vlucas/phpdotenv": " ^2.5"
     },

@@ -1,5 +1,5 @@
 # OpenCV - Haar (tweaked)
-Detect faces using a [OpenCV's haar cascade classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml)
+Detect faces using an [OpenCV haar cascade classifier](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml)
 and customizing a few default settings.  
 
 ## Requirements

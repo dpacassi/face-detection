@@ -1,6 +1,6 @@
 {
     "name": "dpacassi/face-detection",
-    "description": "Face detection with Microsoft Azure Face",
+    "description": "Face detection with Microsoft Azure Face.",
     "require": {
         "vlucas/phpdotenv": " ^2.5"
     },
