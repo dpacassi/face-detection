@@ -50,7 +50,7 @@ If you want to run the code locally, please read the corresponding `README.md` f
 - [OpenCV - LBP](src/solutions/opencv-lbp)
 
 ## CSV Export
-Each solution run checks if a [results.csv](dataset-output/results.csv) file exists.
+Each solution run checks if a `/dataset-output/results.csv` file exists.
 If so, it will attach it's data to this CSV file. If not, it will create the file with the corresponding headers.
 
 ## Dataset
