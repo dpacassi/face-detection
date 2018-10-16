@@ -326,9 +326,12 @@ class FaceDetectionClient {
    * This might change in the future.
    */
   public function exportFalsePositivesCSVHeaders() {
-    $fp = fopen($this->outputDir . '../false_positives.csv', 'w');
-    fputcsv($fp, $this->getFalsePositivesCSVHeaders());
-    fclose($fp);
+    if (!file_exists($this->outputDir . '../false_positives.csv')) {
+      // Only overwrite the file if it's not existing yet.
+      $fp = fopen($this->outputDir . '../false_positives.csv', 'w');
+      fputcsv($fp, $this->getFalsePositivesCSVHeaders());
+      fclose($fp);
+    }
   }
 
   /**
