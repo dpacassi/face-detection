@@ -171,6 +171,29 @@ class FaceDetectionClient {
   }
 
   /**
+   * Returns the false positives CSV header row columns according to
+   * the images array defined in the object.
+   *
+   * @return array
+   *   The false positives header row column names as an array.
+   */
+  protected function getFalsePositivesCSVHeaders() {
+    $headers = ['Vendor'];
+
+    foreach ($this->images as &$image) {
+      $headers[] = $image->getFilename() . ' (Faces detected)';
+      $headers[] = $image->getFilename() . ' (False positives)';
+      $headers[] = $image->getFilename() . ' (False positives %)';
+    }
+
+    $headers[] = 'Total faces detected';
+    $headers[] = 'Total false positives';
+    $headers[] = 'Average false positives';
+
+    return $headers;
+  }
+
+  /**
    * Loops over all images to get the total count of faces detected.
    *
    * @return int
@@ -293,6 +316,18 @@ class FaceDetectionClient {
     }
 
     fputcsv($fp, $columns);
+    fclose($fp);
+  }
+
+  /**
+   * Prepares the a false positives CSV file with a header row but no data.
+   *
+   * As for now, the data has to be entered manually to the CSV.
+   * This might change in the future.
+   */
+  public function exportFalsePositivesCSVHeaders() {
+    $fp = fopen($this->outputDir . '../false_positives.csv', 'w');
+    fputcsv($fp, $this->getFalsePositivesCSVHeaders());
     fclose($fp);
   }
 
