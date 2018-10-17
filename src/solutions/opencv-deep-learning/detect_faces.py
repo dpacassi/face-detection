@@ -10,10 +10,10 @@ def main(minmum_confidence):
     # Take the image file name from the command line.
     file_name = sys.argv[1]
 
-    # Load the image, resize to 300x300 pixels and normalize it.
+    # Load the image.
     image = cv2.imread(file_name)
     (h, w) = image.shape[:2]
-    blob = cv2.dnn.blobFromImage(image)
+    blob = cv2.dnn.blobFromImage(image, 1.0, (w, h), (104.0, 177.0, 123.0))
 
     # Load our serialized model file.
     net = cv2.dnn.readNetFromCaffe('data/deploy.prototxt', 'data/res10_300x300_ssd_iter_140000.caffemodel')
@@ -29,6 +29,11 @@ def main(minmum_confidence):
         if confidence > minmum_confidence:
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             (startX, startY, endX, endY) = box.astype('int')
+
+            if startX > w or endX > w or startY > h or endY > h:
+                # This boundary box is outside of the image, ignore it.
+                continue
+
             faces_result.append({
                 "left": int(startX),
                 "top": int(startY),
