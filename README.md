@@ -27,7 +27,7 @@ In order to execute shell commands to find faces, following class has been writt
 
 **Important:** The `dataset-solutions` folder has been added to `.gitignore` in order not to blow up the Git repository size.  
 In case you're interested to see the processed images used in my blog posts, you can download the complete set
-from our [file server](https://file.ac/ULMGq4AH8jg/).
+from our [file server](https://file.ac/TkwCldonZl0/).
 
 ## Installation
 As stated above, the code for each face detection solution can be found in the `/src/solutions` folder.
